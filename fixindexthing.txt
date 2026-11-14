@@ -1,0 +1,7 @@
+cd "$HOME/MST assignment/partA/slit_275"
+rm -f index.ndx index.tmp* nvt.tpr
+printf 'q\n' | gmx make_ndx -f start.gro -o index.ndx
+cat fluid.ndx >> index.ndx
+grep "\[" index.ndx          # should list System, ..., CH4, CO2, ..., Fluid
+cd ..
+bash setup_partA.sh slit 275

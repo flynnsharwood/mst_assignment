@@ -472,3 +472,89 @@ website at https://manual.gromacs.org/current/user-guide/run-time-errors.html
 -------------------------------------------------------
 >>> npt was interrupted. Run the same command again to resume from npt.cpt.
 
+
+  14556  14560   60.0    0.1142   0.1118      0.1090
+  14556  14560   60.0    0.1142   0.1118      0.1090
+  13696  13697   90.0   36.1380   0.5406      0.1090
+  13696  13698   90.0    2.1067   5.2085      0.1090
+  13696  13699   90.0    2.3362   3.6167      0.1090
+  13696  13700   90.0    2.0189   5.5640      0.1090
+  13526  13530   36.5    0.1099   0.1094      0.1090
+  13756  13759   68.5    0.1107   0.1097      0.1090
+  13756  13760   43.7    0.1061   0.1085      0.1090
+
+Back Off! I just backed up step12b.pdb to ./#step12b.pdb.1#
+
+Back Off! I just backed up step12c.pdb to ./#step12c.pdb.1#
+Wrote pdb files with previous and current coordinates
+
+Step 13, time 0.026 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms -nan, max 0.000000 (between atoms 8437 and 5)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  15257  15258   90.0    0.1149      inf      0.1149
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2025.4-Ubuntu_2025.4_1
+Source file: src/gromacs/mdlib/lincs.cpp (line 2368)
+
+Fatal error:
+Bond length not finite.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at https://manual.gromacs.org/current/user-guide/run-time-errors.html
+-------------------------------------------------------
+>>> npt was interrupted. Run the same command again to resume from npt.cpt.
+
+
+enerated 36 of the 36 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+
+Generated 36 of the 36 1-4 parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'GRA'
+
+turning all bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'SOL'
+
+turning all bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'CH4'
+
+turning all bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'CO2'
+
+turning all bonds into constraints...
+
+Setting gen_seed to 2052054909
+
+Velocities were taken from a Maxwell distribution at 275 K
+
+Cleaning up constraints and constant bonded interactions with virtual sites
+
+NOTE 1 [file topol_slit.top, line 31]:
+  In moleculetype 'GRA' 3000 atoms are not bound by a potential or
+  constraint to any other atom in the same moleculetype. Although
+  technically this might not cause issues in a simulation, this often means
+  that the user forgot to add a bond/potential/constraint or put multiple
+  molecules in the same moleculetype definition by mistake. Run with -v to
+  get information for each atom.
+
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2025.4-Ubuntu_2025.4_1
+Source file: src/gromacs/gmxpreprocess/readir.cpp (line 3211)
+
+Fatal error:
+Group System referenced in the .mdp file was not found in the list of index
+groups.
+Group names must match either [moleculetype] names or custom index group
+names, in which case you must supply an index file to the '-n' option
+of grompp.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at https://manual.gromacs.org/current/user-guide/run-time-errors.html
+

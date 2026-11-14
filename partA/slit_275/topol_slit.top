@@ -7,13 +7,14 @@
 
 [ atomtypes ]
 ; name  at.num  mass     charge ptype sigma(nm) eps(kJ/mol)
-  CG     6   12.011   0.000  A   0.3400   0.2328   ; graphene, Steele
+  CG     6   12.011   0.000  A   0.3550   0.2929   ; graphene, as in paper SI Table S1
   CT     6   12.011   0.000  A   0.3500   0.276144 ; OPLS-AA opls_138 (CH4 C)
   HC     1    1.008   0.000  A   0.2500   0.12552  ; OPLS-AA opls_140
   C_CO2  6   12.011   0.000  A   0.2757   0.2339   ; EPM2
   O_CO2  8   15.999   0.000  A   0.3033   0.6694   ; EPM2
   OW     8   15.9994  0.000  A   0.316557 0.650194 ; SPC/E
   HW     1    1.008   0.000  A   0.0      0.0
+  MW     0   22.0049  0.000  A   0.0      0.0      ; CO2 mass carrier (no LJ, no charge)
 
 #include "graphene.itp"
 #include "ch4.itp"

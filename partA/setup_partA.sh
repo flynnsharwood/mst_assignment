@@ -45,11 +45,11 @@ if [ ! -f start.gro ]; then
   fi
 fi
 if [ ! -f index.ndx ]; then
-  printf 'q\n' | gmx make_ndx -f start.gro -o index.tmp
+  printf 'q\n' | gmx make_ndx -f start.gro -o index_tmp.ndx
   if [ "$SYS" = slit ]; then
-    gmx select -s start.gro -select '"Fluid" not resname GRA' -on fluid.ndx; cat fluid.ndx >> index.tmp
+    gmx select -s start.gro -select '"Fluid" not resname GRA' -on fluid.ndx; cat fluid.ndx >> index_tmp.ndx
   fi
-  mv index.tmp index.ndx
+  mv index_tmp.ndx index.ndx
 fi
 
 # 3. minimise, heat, equilibrate density
