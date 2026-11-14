@@ -1,0 +1,16 @@
+tolerance 2.0
+filetype pdb
+output fluid_bulk.pdb
+pbc 0. 0. 0. 65. 65. 65.
+structure spce.pdb
+  number 3450
+  inside box 0. 0. 0. 65. 65. 65.
+end structure
+structure ch4.pdb
+  number 300
+  inside box 0. 0. 0. 65. 65. 65.
+end structure
+structure co2.pdb
+  number 300
+  inside box 0. 0. 0. 65. 65. 65.
+end structure

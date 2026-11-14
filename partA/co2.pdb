@@ -1,0 +1,6 @@
+HETATM    1  O1  CO2     1      -1.149   0.000   0.000
+HETATM    2  C   CO2     1       0.000   0.000   0.000
+HETATM    3  O2  CO2     1       1.149   0.000   0.000
+HETATM    4  MW1 CO2     1      -0.980   0.000   0.000
+HETATM    5  MW2 CO2     1       0.980   0.000   0.000
+END

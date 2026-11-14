@@ -1,0 +1,30 @@
+; Part A, slit system. Order in [ molecules ] must match the coordinate file:
+; graphene first, then Packmol's order (water, CH4, CO2).
+; Geometric mixing for sigma and epsilon (comb-rule 3), as in the paper.
+[ defaults ]
+; nbfunc comb-rule gen-pairs fudgeLJ fudgeQQ
+  1       3         yes       0.5     0.5
+
+[ atomtypes ]
+; name  at.num  mass     charge ptype sigma(nm) eps(kJ/mol)
+  CG     6   12.011   0.000  A   0.3400   0.2328   ; graphene, Steele
+  CT     6   12.011   0.000  A   0.3500   0.276144 ; OPLS-AA opls_138 (CH4 C)
+  HC     1    1.008   0.000  A   0.2500   0.12552  ; OPLS-AA opls_140
+  C_CO2  6   12.011   0.000  A   0.2757   0.2339   ; EPM2
+  O_CO2  8   15.999   0.000  A   0.3033   0.6694   ; EPM2
+  OW     8   15.9994  0.000  A   0.316557 0.650194 ; SPC/E
+  HW     1    1.008   0.000  A   0.0      0.0
+
+#include "graphene.itp"
+#include "ch4.itp"
+#include "co2.itp"
+#include "spce.itp"
+
+[ system ]
+CH4/CO2/H2O in graphene slit
+
+[ molecules ]
+GRA   1
+SOL 3450
+CH4 300
+CO2 300

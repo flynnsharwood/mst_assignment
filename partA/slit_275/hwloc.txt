@@ -1,0 +1,15 @@
+export HWLOC_COMPONENTS=-gl,-opencl
+cd "$HOME/MST assignment/partA/slit_275"
+gmx mdrun -deffnm em -ntmpi 1 -ntomp 16 -v
+
+
+
+echo 'export HWLOC_COMPONENTS=-gl,-opencl' >> ~/.bashrc
+source ~/.bashrc
+
+
+cd "$HOME/MST assignment/partA"
+sed -i 's/-nt \$NT/-ntmpi 1 -ntomp $NT/' setup_partA.sh
+rm -rf slit_275
+export NT=16
+bash setup_partA.sh slit 275

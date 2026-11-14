@@ -1,0 +1,60 @@
+# Part B: hybrid GCMC/MD of a 50/50 CH4/CO2 reservoir into a graphene slit.
+# UNTESTED TEMPLATE - compare against examples/gcmc (CO2) in the LAMMPS source.
+# Needs packages MC, RIGID, KSPACE, MOLECULE.  Run: lmp -in in.gcmc_slit -var T 275 -var Patm 49.35 -var phiCH4 0.865 -var phiCO2 0.445
+units           real
+atom_style      full
+boundary        p p p
+read_data       graphene_lammps.data
+pair_style      lj/cut/coul/long 12.0
+pair_modify     mix geometric
+kspace_style    pppm 1.0e-5
+# epsilon (kcal/mol) sigma (A)
+pair_coeff      1 1 0.0556 3.400   # graphene (Steele)
+pair_coeff      2 2 0.0660 3.500   # CH4 C  (OPLS-AA)
+pair_coeff      3 3 0.0300 2.500   # CH4 H
+pair_coeff      4 4 0.0559 2.757   # CO2 C  (EPM2)
+pair_coeff      5 5 0.1600 3.033   # CO2 O
+
+molecule        ch4 ch4.mol
+molecule        co2 co2.mol
+group           gra type 1
+neigh_modify    exclude group gra gra every 1 delay 0 check yes
+
+# slit interior (graphene occupies z ~ 0.5-3.9 A); keep insertions 2.5 A away from carbon
+region          pore block INF INF INF INF 6.5 21.0 units box
+
+# seed a few molecules so the rigid fixes have bodies to start with
+create_atoms    0 random 5 1001 pore mol ch4 2001 overlap 2.5
+create_atoms    0 random 5 1002 pore mol co2 2002 overlap 2.5
+group           ch4 type 2 3
+group           co2 type 4 5
+group           gas union ch4 co2
+velocity        gas create ${T} 4928459 dist gaussian
+
+fix             rch4 ch4 rigid/nvt/small molecule temp ${T} ${T} 100 mol ch4
+fix             rco2 co2 rigid/nvt/small molecule temp ${T} ${T} 100 mol co2
+fix_modify      rch4 dynamic/dof yes
+fix_modify      rco2 dynamic/dof yes
+timestep        2.0
+
+# N=100 steps between calls, X=50 exchange attempts, M=0 MC moves (required with rigid)
+# tfac_insert: 6/3 for non-linear CH4, 5/3 for linear CO2
+fix             gch4 ch4 gcmc 100 50 0 0 3011 ${T} 0.0 0.5 mol ch4 rigid rch4 region pore &
+                pressure ${Patm} fugacity_coeff ${phiCH4} tfac_insert 2.0 group ch4 group gas
+fix             gco2 co2 gcmc 100 50 0 0 3012 ${T} 0.0 0.5 mol co2 rigid rco2 region pore &
+                pressure ${Patm} fugacity_coeff ${phiCO2} tfac_insert 1.6667 group co2 group gas
+
+variable        nCH4 equal count(ch4)/5
+variable        nCO2 equal count(co2)/3
+compute_modify  thermo_temp dynamic/dof yes
+thermo_style    custom step temp pe v_nCH4 v_nCO2 f_gch4[4] f_gch4[3] f_gco2[4] f_gco2[3]
+thermo          1000
+run             1500000          # 3 ns; extend until nCH4 and nCO2 are flat
+write_data      loaded.data
+
+# ---- production: GCMC off, plain NVT for diffusion ----
+unfix           gch4
+unfix           gco2
+reset_timestep  0
+dump            traj gas custom 500 traj.lammpstrj id mol type xu yu zu   # every 1 ps, unwrapped
+run             5000000          # 10 ns

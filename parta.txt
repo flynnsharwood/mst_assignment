@@ -1,0 +1,474 @@
+bash setup_partA.sh slit 275
+
+################################################################################
+
+ PACKMOL - Packing optimization for the automated generation of
+ starting configurations for molecular dynamics simulations.
+ 
+                                                             Version 21.2.1 
+
+################################################################################
+
+  Packmol must be run with: packmol < inputfile.inp 
+
+  Userguide at: http://m3g.iqm.unicamp.br/packmol 
+
+  Reading input file... (Control-C aborts)
+  Types of coordinate files specified: pdb
+  Periodic boundary condition activated: 
+    Minimum coordinates:     0.00    0.00    0.00
+    Maximum coordinates:    61.49   63.90   80.00
+  Seed for random number generator:        13225
+  Output file: fluid_slit.pdb
+  Reading coordinate file: spce.pdb
+  Reading coordinate file: ch4.pdb
+  Reading coordinate file: co2.pdb
+  Number of independent structures:            3
+  The structures are: 
+  Structure            1 :spce.pdb(           3  atoms)
+  Structure            2 :ch4.pdb(           5  atoms)
+  Structure            3 :co2.pdb(           3  atoms)
+  Maximum number of GENCAN loops for all molecule packing:          600
+  Distance tolerance:    2.0000000000000000     
+  Warning: Type of residue numbering not set for structure            1
+  Residue numbering set for structure            1 :           0
+  Swap chains of molecules of structure            1 : F
+  Warning: Type of residue numbering not set for structure            2
+  Residue numbering set for structure            2 :           0
+  Swap chains of molecules of structure            2 : F
+  Warning: Type of residue numbering not set for structure            3
+  Residue numbering set for structure            3 :           0
+  Swap chains of molecules of structure            3 : F
+  Number of molecules of type            1 :         3450
+  Number of molecules of type            2 :          300
+  Number of molecules of type            3 :          300
+  Total number of restrictions:            3
+  Total number of atoms:        12750
+  Total number of molecules:         4050
+  Number of fixed molecules:            0
+  Number of free molecules:         4050
+  Number of variables:        24300
+  Total number of fixed atoms:            0
+  PBC on: Constraint automatically added to non-fixed atoms:
+  -> inside box     0.00    0.00    0.00   61.49   63.90   80.00
+  Updated total number of restrictions:            4
+  Maximum internal distance of type            1 :    1.6319999999999999     
+  Maximum internal distance of type            2 :    1.7790806614653536     
+  Maximum internal distance of type            3 :    2.2980000000000000     
+  All atoms must be within these coordinates: 
+   x: [   -998.92873846153850      ,    1001.0712615384615       ] 
+   y: [   -999.49500170940166      ,    1000.5049982905983       ] 
+   z: [   -987.20000000000005      ,    1012.8000000000000       ] 
+  If the system is larger than this, increase the sidemax parameter. 
+
+################################################################################
+
+  Building initial approximation ... 
+
+################################################################################
+
+  Adjusting initial point to fit the constraints 
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            1
+
+  Packing:|0                                                        100%|
+          |***************
+
+  Restraint-only function value:   0.15034607866211069     
+  Maximum violation of the restraints:    6.1037616251205570E-003
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            2
+
+  Packing:|0                                                        100%|
+          |******************
+
+  Restraint-only function value:    4.4800276535189969E-003
+  Maximum violation of the restraints:    3.4706375376868377E-003
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            3
+
+  Packing:|0                                                        100%|
+          |***************
+
+  Restraint-only function value:    7.6492918379159466E-003
+  Maximum violation of the restraints:    3.0882349002912617E-003
+
+--------------------------------------------------------------------------------
+
+  Rescaling maximum and minimum coordinates... 
+  Mininum and maximum coordinates after constraint fitting: 
+   x: [   -5.5243830538443645E-002 ,    61.533888218803774       ] 
+   y: [   -5.0613313017723371E-002 ,    63.932009914682013       ] 
+   z: [    6.4604851497602489      ,    77.511906980600713       ] 
+  Computing size of patches... 
+  Number of cells in each direction and cell sides: 
+   x:           27  cells of size    2.2774074074074075     
+   y:           28  cells of size    2.2821428571428570     
+   z:           36  cells of size    2.2222222222222223     
+  Cell-system length:   61.49000  63.90000  80.00000
+  Reseting center of mass... 
+
+--------------------------------------------------------------------------------
+
+  Setting initial trial coordinates ... 
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            1
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |*********
+  Restraint-only function value:    3.9435623148571438E-005
+  Maximum violation of the restraints:    3.9434576555859657E-005
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            2
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |***
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            3
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |******
+  Restraint-only function value:    2.6561670246604175E-006
+  Maximum violation of the restraints:    2.6561670246604175E-006
+
+################################################################################
+
+  Objective function at initial point:    35877.749385343712     
+
+################################################################################
+
+  Packing molecules of type:            1
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |******************************
+
+  Function value from last GENCAN loop: f = .10509E-04
+  Best function value before: f = .23182E+05
+  Improvement from best function value:    99.99 %
+  Improvement from last loop:    99.99 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .76348E-05
+  Current structure written to file: fluid_slit.pdb
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           1
+  Objective function value:    1.0508608406372962E-005
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    7.6347615346105961E-006
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing molecules of type:            2
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |******
+
+  Function value from last GENCAN loop: f = .00000E+00
+  Best function value before: f = .33520E+03
+  Improvement from best function value:    99.99 %
+  Improvement from last loop:    99.99 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .00000E+00
+  Current structure written to file: fluid_slit.pdb
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           2
+  Objective function value:    0.0000000000000000     
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    0.0000000000000000     
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing molecules of type:            3
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |******
+
+  Function value from last GENCAN loop: f = .00000E+00
+  Best function value before: f = .28769E+03
+  Improvement from best function value:    99.99 %
+  Improvement from last loop:    99.99 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .00000E+00
+  Current structure written to file: fluid_slit.pdb
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           3
+  Objective function value:    0.0000000000000000     
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    0.0000000000000000     
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing all molecules together 
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |******************************
+
+  Function value from last GENCAN loop: f = .16655E-08
+  Best function value before: f = .11209E+05
+  Improvement from best function value:    99.99 %
+  Improvement from last loop:    99.99 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .16655E-08
+
+################################################################################
+
+                                 Success! 
+              Final objective function value: .16655E-08
+              Maximum violation of target distance:   0.000000
+              Maximum violation of the constraints: .16655E-08
+
+--------------------------------------------------------------------------------
+
+              Please cite this work if Packmol was useful: 
+
+           L. Martinez, R. Andrade, E. G. Birgin, J. M. Martinez, 
+         PACKMOL: A package for building initial configurations for
+                   molecular dynamics simulations. 
+        Journal of Computational Chemistry, 30(13) pp. 2157-2164, 2009.
+                  https://doi.org/10.1002/jcc.21224
+
+################################################################################
+
+  Solution written to file: fluid_slit.pdb
+
+--------------------------------------------------------------------------------
+
+   Running time:   0.802882016      seconds. 
+
+--------------------------------------------------------------------------------
+
+
+             :-) GROMACS - gmx editconf, 2025.4-Ubuntu_2025.4_1 (-:
+
+Executable:   /usr/bin/gmx
+Data prefix:  /usr
+Working dir:  /home/administrator/MST assignment/partA/slit_275
+Command line:
+  gmx editconf -f fluid_slit.pdb -o fluid.gro -box 6.14878 6.39000 8.00000
+
+Note that major changes are planned in future for editconf, to improve usability and utility.
+Read 12750 atoms
+Volume: 314.337 nm^3, corresponds to roughly 141400 electrons
+No velocities found
+    system size :  6.149  6.390  7.100 (nm)
+    center      :  3.034  3.216  4.194 (nm)
+    box vectors :  6.149  6.390  8.000 (nm)
+    box angles  :  90.00  90.00  90.00 (degrees)
+    box volume  : 314.34               (nm^3)
+    shift       :  0.040 -0.021 -0.194 (nm)
+new center      :  3.074  3.195  4.000 (nm)
+new box vectors :  6.149  6.390  8.000 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  : 314.33               (nm^3)
+
+Back Off! I just backed up fluid.gro to ./#fluid.gro.2#
+
+GROMACS reminds you: "You Got to Relate to It" (A.E. Torda)
+
+             :-) GROMACS - gmx make_ndx, 2025.4-Ubuntu_2025.4_1 (-:
+
+Executable:   /usr/bin/gmx
+Data prefix:  /usr
+Working dir:  /home/administrator/MST assignment/partA/slit_275
+Command line:
+  gmx make_ndx -f start.gro -o index.ndx
+
+
+Reading structure file
+Going to read 0 old index file(s)
+Analysing residue names:
+There are:   601      Other residues
+There are:  3450      Water residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+  0 System              : 15750 atoms
+  1 Other               :  5400 atoms
+  2 GRA                 :  3000 atoms
+  3 CH4                 :  1500 atoms
+  4 CO2                 :   900 atoms
+  5 Water               : 10350 atoms
+  6 SOL                 : 10350 atoms
+  7 non-Water           :  5400 atoms
+
+ nr : group      '!': not  'name' nr name   'splitch' nr    Enter: list groups
+ 'a': atom       '&': and  'del' nr         'splitres' nr   'l': list residues
+ 't': atom type  '|': or   'keep' nr        'splitat' nr    'h': help
+ 'r': residue              'res' nr         'chain' char
+ "name": group             'case': case sensitive           'q': save and quit
+ 'ri': residue index
+
+> 
+
+Back Off! I just backed up index.ndx to ./#index.ndx.2#
+
+GROMACS reminds you: "You Got to Relate to It" (A.E. Torda)
+
+              :-) GROMACS - gmx select, 2025.4-Ubuntu_2025.4_1 (-:
+
+Executable:   /usr/bin/gmx
+Data prefix:  /usr
+Working dir:  /home/administrator/MST assignment/partA/slit_275
+Command line:
+  gmx select -s start.gro -select '"Fluid" not resname GRA' -on fluid.ndx
+
+
+WARNING: Masses and atomic (Van der Waals) radii will be guessed
+         based on residue and atom names, since they could not be
+         definitively assigned from the information in your input
+         files. These guessed numbers might deviate from the mass
+         and radius of the atom type. Please check the output
+         files if necessary. Note, that this functionality may
+         be removed in a future GROMACS version. Please, consider
+         using another file format for your input.
+
+
+Back Off! I just backed up fluid.ndx to ./#fluid.ndx.2#
+Analyzed topology coordinates
+
+GROMACS reminds you: "You Got to Relate to It" (A.E. Torda)
+
+              :-) GROMACS - gmx grompp, 2025.4-Ubuntu_2025.4_1 (-:
+
+Executable:   /usr/bin/gmx
+Data prefix:  /usr
+Working dir:  /home/administrator/MST assignment/partA/slit_275
+Command line:
+  gmx grompp -f em.mdp -c start.gro -r start.gro -p topol_slit.top -n index.ndx -o em.tpr -maxwarn 1
+
+Setting the LD random seed to -268444929
+
+Generated 28 of the 28 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+
+Generated 28 of the 28 1-4 parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'GRA'
+
+turning all bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'SOL'
+
+turning all bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'CH4'
+
+turning all bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'CO2'
+
+turning all bonds into constraints...
+
+NOTE 1 [file topol_slit.top, line 30]:
+  In moleculetype 'GRA' 3000 atoms are not bound by a potential or
+  constraint to any other atom in the same moleculetype. Although
+  technically this might not cause issues in a simulation, this often means
+  that the user forgot to add a bond/potential/constraint or put multiple
+  molecules in the same moleculetype definition by mistake. Run with -v to
+  get information for each atom.
+
+Number of degrees of freedom in T-Coupling group rest is 35097.00
+The integrator does not provide a ensemble temperature, there is no system ensemble temperature
+
+The largest distance between excluded atoms is 0.231 nm between atom 15598 and 15600
+
+NOTE 2 [file em.mdp]:
+  Removing center of mass motion in the presence of position restraints
+  might cause artifacts. When you are using position restraints to
+  equilibrate a macro-molecule, the artifacts are usually negligible.
+
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 52x56x72, spacing 0.118 0.114 0.111
+
+Estimate for the relative computational load of the PME mesh part: 0.37
+
+This run will generate roughly 1 Mb of data
+
+There were 2 NOTEs
+
+GROMACS reminds you: "You Got to Relate to It" (A.E. Torda)
+
+              :-) GROMACS - gmx mdrun, 2025.4-Ubuntu_2025.4_1 (-:
+
+Executable:   /usr/bin/gmx
+Data prefix:  /usr
+Working dir:  /home/administrator/MST assignment/partA/slit_275
+Command line:
+  gmx mdrun -deffnm em -nt 16
+
+
+  15563  15564   89.6    0.1149 26980.2109      0.1149
+  15458  15459   89.4    0.1149 58598.2930      0.1149
+  15457  15458   90.4    0.1149 62654.8711      0.1149
+  15485  15486   93.7    0.1149 2895.6963      0.1149
+  15484  15485   86.7    0.1149 3237.7964      0.1149
+  15484  15485   86.7    0.1149 3237.7964      0.1149
+  15484  15485   86.7    0.1149 3237.7964      0.1149
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2025.4-Ubuntu_2025.4_1
+Source file: src/gromacs/mdlib/constr.cpp (line 254)
+
+Fatal error:
+Too many LINCS warnings (1949)
+If you know what you are doing you can adjust the lincs warning threshold in
+your mdp file
+or set the environment variable GMX_MAXCONSTRWARN to -1,
+but normally it is better to fix the problem
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at https://manual.gromacs.org/current/user-guide/run-time-errors.html
+-------------------------------------------------------
+>>> npt was interrupted. Run the same command again to resume from npt.cpt.
+

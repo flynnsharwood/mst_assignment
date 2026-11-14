@@ -1,0 +1,18 @@
+# Packmol, Angstrom. Fluid between the bilayer wall (z 0.5-3.85 A) and its
+# periodic image at z = Lz. Start loose (Lz = 80 A); NPT shrinks it.
+tolerance 2.0
+filetype pdb
+output fluid_slit.pdb
+pbc 0. 0. 0. 61.49 63.90 80.0
+structure spce.pdb
+  number 3450
+  inside box 0.0 0.0 6.5 61.49 63.90 77.5
+end structure
+structure ch4.pdb
+  number 300
+  inside box 0.0 0.0 6.5 61.49 63.90 77.5
+end structure
+structure co2.pdb
+  number 300
+  inside box 0.0 0.0 6.5 61.49 63.90 77.5
+end structure

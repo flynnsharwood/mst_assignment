@@ -1,0 +1,22 @@
+; shared settings, copied into every stage below
+cutoff-scheme   = Verlet
+nstlist         = 20
+coulombtype     = PME
+rcoulomb        = 1.2
+vdwtype         = PME          ; LJ-PME: exact for geometric mixing, no DispCorr needed in the slit
+rvdw            = 1.2
+lj-pme-comb-rule = geometric
+fourierspacing  = 0.12
+constraints     = all-bonds    ; CH4 C-H and CO2 C=O; water uses SETTLE
+constraint-algorithm = lincs
+lincs-order     = 6
+integrator      = md
+dt              = 0.001
+nsteps          = 200000        ; 0.2 ns
+tcoupl          = V-rescale
+tc-grps         = System
+tau-t           = 0.5
+ref-t           = 275
+gen-vel         = yes
+gen-temp        = 275
+refcoord-scaling = com
